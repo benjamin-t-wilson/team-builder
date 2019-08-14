@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 function MemberForm(props) {
-  const [member, setMember] = useState({
+  const emptyObj = {
     name: "",
     occupation: "",
     bio: ""
-  });
+  };
+  const [member, setMember] = useState(emptyObj);
 
   const changeHandler = event => {
     setMember({ ...member, [event.target.name]: event.target.value });
@@ -22,9 +23,11 @@ function MemberForm(props) {
     } else {
       props.members.map(cv => {
         if (cv.id === member.id) {
-          console.log("correct one");
-          cv.name = member.name
-          console.log(cv.name)
+          cv.name = member.name;
+          cv.occupation = member.occupation;
+          cv.bio = member.bio;
+          props.returnEditMember(member);
+          setMember(emptyObj);
         }
       });
     }
@@ -37,7 +40,6 @@ function MemberForm(props) {
 
   useEffect(() => {
     if (didMount) {
-      console.log("useeffect fired");
       setMember(props.memberToEdit);
     }
   }, [props.memberToEdit]);
