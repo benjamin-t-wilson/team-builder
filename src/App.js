@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import "./App.scss";
 
 import MemberList from "./components/MemberList.js";
 import TeamMember from "./components/TeamMember.js";
@@ -13,6 +13,8 @@ function App() {
   };
   return (
     <div className="App">
+      <h1>The League of Ordinary Gentlemen</h1>
+      <h2>and women*</h2>
       <MemberForm addNewMember={addNewMember}/>
       <TeamMember members={team} />
     </div>
