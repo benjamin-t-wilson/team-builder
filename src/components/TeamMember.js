@@ -1,6 +1,6 @@
 import React from "react"
 
-function Team(props) {
+function TeamMember(props) {
     return (
         <div className="team">
             {props.members.map(cv => {
@@ -16,4 +16,4 @@ function Team(props) {
     )
 }
 
-export default Team
+export default TeamMember

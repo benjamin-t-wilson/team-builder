@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 
 import MemberList from "./components/MemberList.js";
-import Team from "./components/Team.js";
+import TeamMember from "./components/TeamMember.js";
 import MemberForm from "./components/MemberForm.js";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <MemberForm addNewMember={addNewMember}/>
-      <Team members={team} />
+      <TeamMember members={team} />
     </div>
   );
 }
