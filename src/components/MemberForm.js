@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function MemberForm(props) {
   const [member, setMember] = useState({
@@ -19,6 +19,17 @@ function MemberForm(props) {
     };
     props.addNewMember(newMember);
   };
+
+  const [didMount, setDidMount] = useState(false);
+  useEffect(() => {
+    setDidMount(true);
+  }, []);
+
+  useEffect(() => {
+    if (didMount) {
+      console.log("useeffect fired");
+    }
+  }, [props.memberToEdit]);
 
   return (
     <form onSubmit={submitForm}>

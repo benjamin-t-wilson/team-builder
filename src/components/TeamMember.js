@@ -9,6 +9,7 @@ function TeamMember(props) {
                         <h1>{cv.name}</h1>
                         <h2>{cv.occupation}</h2>
                         <p>{cv.bio}</p>
+                        <button onClick={() => {props.editMember(cv)}}>Edit</button>
                     </div>
                 )
             })}
