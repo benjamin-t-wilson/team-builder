@@ -20,6 +20,7 @@ function MemberForm(props) {
         id: Date.now()
       };
       props.addNewMember(newMember);
+      setMember(emptyObj);
     } else {
       props.members.map(cv => {
         if (cv.id === member.id) {
