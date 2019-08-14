@@ -13,11 +13,21 @@ function MemberForm(props) {
 
   const submitForm = event => {
     event.preventDefault();
-    const newMember = {
-      ...member,
-      id: Date.now()
-    };
-    props.addNewMember(newMember);
+    if (props.isEditing == false) {
+      const newMember = {
+        ...member,
+        id: Date.now()
+      };
+      props.addNewMember(newMember);
+    } else {
+      props.members.map(cv => {
+        if (cv.id === member.id) {
+          console.log("correct one");
+          cv.name = member.name
+          console.log(cv.name)
+        }
+      });
+    }
   };
 
   const [didMount, setDidMount] = useState(false);
@@ -28,6 +38,7 @@ function MemberForm(props) {
   useEffect(() => {
     if (didMount) {
       console.log("useeffect fired");
+      setMember(props.memberToEdit);
     }
   }, [props.memberToEdit]);
 

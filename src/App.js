@@ -13,18 +13,20 @@ function App() {
   };
 
   const [memberToEdit, setMemberToEdit] = useState();
+  const [isEditing, setIsEditing] = useState(false);
 
   const editMember = member => {
     setMemberToEdit(member);
-    console.log("onclick fired", member)
+    setIsEditing(true);
+    console.log("onclick fired", member);
   };
 
   return (
     <div className="App">
       <h1>The League of Ordinary Gentlemen</h1>
       <h2>and women*</h2>
-      <MemberForm addNewMember={addNewMember} memberToEdit={memberToEdit}/>
-      <TeamMember members={team} editMember={editMember}/>
+      <MemberForm addNewMember={addNewMember} memberToEdit={memberToEdit} isEditing={isEditing} members={team} />
+      <TeamMember members={team} editMember={editMember} />
     </div>
   );
 }
